@@ -13,3 +13,7 @@ Task 1 of LetsGrowMore [task list](https://www.canva.com/design/DAEhLWUJEDM/qVR2
 ![Large screen](https://github.com/kushaagr/lgmvip-web-task-1/assets/68564934/90b2e3b3-f24e-4ce8-86c6-e4a628b31c88)
 ![Medium screen](https://github.com/kushaagr/lgmvip-web-task-1/assets/68564934/f8496ac8-6063-4b7c-83c0-647e11fccc52)
 ![Small screen](https://github.com/kushaagr/lgmvip-web-task-1/assets/68564934/d3564e36-7a0c-4833-b24d-0d22402e86ea)
+
+## Demo
+https://github.com/kushaagr/lgmvip-web-task-1/assets/68564934/9e34a8c4-4340-4ca2-9f72-bd44dc68c325
+
