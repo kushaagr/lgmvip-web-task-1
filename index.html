@@ -1,0 +1,112 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-j7pv25f6> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="stylesheet" href="/styles/an-item-styles.css"><script type="module" src="/components/an-item.js" async></script><script src="/scripts/main.js" type="module" defer></script><script src="/scripts/pill-creator.js" defer></script><script>
+      const app_state = {
+        test: "hello world",
+        deletedItems: [],
+      };
+    </script><title>Todo & Journal</title><!-- <script defer src="./components/key-hint.js"></script> --><!-- <link rel="stylesheet" href="/styles/font-and-colors.css" /> --><link rel="stylesheet" href="/_astro/index.BKnxGBJk.css"></head> <body class="py-3 dotted-grid-bg min-h-screen bg-slate-50" data-astro-cid-j7pv25f6> <div id="root" class="mx-auto box-content max-w-2xl" data-astro-cid-j7pv25f6> <h1 class="rounded-md text-center text-md font-bold lowercase drop-shadow-md" data-astro-cid-j7pv25f6>
+Todo & Journal
+</h1>  <div class="signifiers-section my-2 px-2 rounded-md" data-astro-cid-j7pv25f6> <p class="signifier-text py-2" data-astro-cid-j7pv25f6>Signifier and their utility</p> <p class="signifier-group" data-astro-cid-j7pv25f6> <span class="signifier-text" data-astro-cid-j7pv25f6>➔ = for todo</span> <span class="signifier-text" data-astro-cid-j7pv25f6>≋ = for journalling</span> <span class="signifier-text" data-astro-cid-j7pv25f6>🞲 = for anything else</span> </p> <p class="signifier-text" data-astro-cid-j7pv25f6>
+Use rest of the signifiers at your own discretion.
+</p> </div> <div id="itemContainer" class="items relative" data-astro-cid-j7pv25f6> <!-- <div class="sticky top-1 z-20"> --><div class="absolute top-0 left-[-5rem] h-full z-20" data-astro-cid-husf5irm> <!-- <div class="action-bar absolute top-0"> --> <div class="action-bar sticky top-1" data-astro-cid-husf5irm> <div class="swap-icons" data-astro-cid-husf5irm> <button id="swapUpButton" data-astro-cid-husf5irm> <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-astro-cid-husf5irm> <path d="M17 16L15 16C12.7909 16 11 14.2091 11 12L11 7" stroke="#200E32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-husf5irm></path> <path d="M8 10L11 7L14 10" stroke="#200E32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-husf5irm></path> </svg> <span class="hint" data-astro-cid-husf5irm>Move up (Shift+W)</span> </button> <button id="swapDownButton" data-astro-cid-husf5irm> <svg class="down-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-astro-cid-husf5irm> <path d="M17 8L15 8C12.7909 8 11 9.79086 11 12L11 17" stroke="#200E32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-husf5irm></path> <path d="M8 14L11 17L14 14" stroke="#200E32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-husf5irm></path> </svg> <span class="hint" data-astro-cid-husf5irm>Move down (Shift+S)</span> </button> </div> <button id="deleteItem" data-astro-cid-husf5irm> <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-astro-cid-husf5irm> <path d="M6.99486 7.00636C6.60433 7.39689 6.60433 8.03005 6.99486 8.42058L10.58 12.0057L6.99486 15.5909C6.60433 15.9814 6.60433 16.6146 6.99486 17.0051C7.38538 17.3956 8.01855 17.3956 8.40907 17.0051L11.9942 13.4199L15.5794 17.0051C15.9699 17.3956 16.6031 17.3956 16.9936 17.0051C17.3841 16.6146 17.3841 15.9814 16.9936 15.5909L13.4084 12.0057L16.9936 8.42059C17.3841 8.03007 17.3841 7.3969 16.9936 7.00638C16.603 6.61585 15.9699 6.61585 15.5794 7.00638L11.9942 10.5915L8.40907 7.00636C8.01855 6.61584 7.38538 6.61584 6.99486 7.00636Z" fill="#0F0F0F" data-astro-cid-husf5irm></path> </svg> <span class="hint" data-astro-cid-husf5irm>Delete (Shift+Q)</span> </button> <button id="undoDelete" data-astro-cid-husf5irm> <!--?xml version="1.0" encoding="utf-8"?--><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools --> <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-astro-cid-husf5irm> <path d="M12 20.75C10.078 20.7474 8.23546 19.9827 6.8764 18.6236C5.51733 17.2645 4.75265 15.422 4.75 13.5C4.75 13.3011 4.82902 13.1103 4.96967 12.9697C5.11032 12.829 5.30109 12.75 5.5 12.75C5.69891 12.75 5.88968 12.829 6.03033 12.9697C6.17098 13.1103 6.25 13.3011 6.25 13.5C6.25 14.6372 6.58723 15.7489 7.21905 16.6945C7.85087 17.6401 8.74889 18.3771 9.79957 18.8123C10.8502 19.2475 12.0064 19.3614 13.1218 19.1395C14.2372 18.9177 15.2617 18.37 16.0659 17.5659C16.87 16.7617 17.4177 15.7372 17.6395 14.6218C17.8614 13.5064 17.7475 12.3502 17.3123 11.2996C16.8771 10.2489 16.1401 9.35087 15.1945 8.71905C14.2489 8.08723 13.1372 7.75 12 7.75H9.5C9.30109 7.75 9.11032 7.67098 8.96967 7.53033C8.82902 7.38968 8.75 7.19891 8.75 7C8.75 6.80109 8.82902 6.61032 8.96967 6.46967C9.11032 6.32902 9.30109 6.25 9.5 6.25H12C13.9228 6.25 15.7669 7.01384 17.1265 8.37348C18.4862 9.73311 19.25 11.5772 19.25 13.5C19.25 15.4228 18.4862 17.2669 17.1265 18.6265C15.7669 19.9862 13.9228 20.75 12 20.75Z" fill="#000000" data-astro-cid-husf5irm></path> <path d="M12 10.75C11.9015 10.7505 11.8038 10.7313 11.7128 10.6935C11.6218 10.6557 11.5393 10.6001 11.47 10.53L8.47001 7.53003C8.32956 7.38941 8.25067 7.19878 8.25067 7.00003C8.25067 6.80128 8.32956 6.61066 8.47001 6.47003L11.47 3.47003C11.5387 3.39634 11.6215 3.33724 11.7135 3.29625C11.8055 3.25526 11.9048 3.23322 12.0055 3.23144C12.1062 3.22966 12.2062 3.24819 12.2996 3.28591C12.393 3.32363 12.4778 3.37977 12.549 3.45099C12.6203 3.52221 12.6764 3.60705 12.7141 3.70043C12.7519 3.79382 12.7704 3.89385 12.7686 3.99455C12.7668 4.09526 12.7448 4.19457 12.7038 4.28657C12.6628 4.37857 12.6037 4.46137 12.53 4.53003L10.06 7.00003L12.53 9.47003C12.6705 9.61066 12.7494 9.80128 12.7494 10C12.7494 10.1988 12.6705 10.3894 12.53 10.53C12.4608 10.6001 12.3782 10.6557 12.2872 10.6935C12.1962 10.7313 12.0986 10.7505 12 10.75Z" fill="#000000" data-astro-cid-husf5irm></path> </svg> <span class="hint" data-astro-cid-husf5irm>Un-delete (Shift+Z)</span> </button> <button onclick="newItemModal.showModal()" data-astro-cid-husf5irm> <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-astro-cid-husf5irm> <path d="M6 12H18M12 6V18" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-husf5irm></path> </svg> <span class="hint" data-astro-cid-husf5irm>New item (Shift+N)</span> </button> <button onclick="addTagsDialog.showModal()" id="addTagsButton" data-astro-cid-husf5irm> <!--?xml version="1.0" encoding="utf-8"?--><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools --> <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-astro-cid-husf5irm> <path d="M12.32 19.98C11.74 19.98 11.16 19.76 10.72 19.32L4.24 12.85C4.1 12.71 4.02 12.52 4.02 12.32V4.77002C4.02 4.36002 4.36 4.02002 4.77 4.02002H12.31C12.51 4.02002 12.7 4.10002 12.84 4.24002L19.32 10.72C20.19 11.6 20.19 13.03 19.32 13.91L13.91 19.32C13.47 19.76 12.89 19.98 12.31 19.98H12.32ZM5.52 12.01L11.78 18.26C12.08 18.55 12.56 18.55 12.85 18.26L18.26 12.85C18.55 12.56 18.55 12.08 18.26 11.78L12 5.52002H5.52V12V12.01ZM8.5 9.75002C7.81 9.75002 7.25 9.19002 7.25 8.50002C7.25 7.81002 7.81 7.25002 8.5 7.25002C9.19 7.25002 9.75 7.81002 9.75 8.50002C9.75 9.19002 9.19 9.75002 8.5 9.75002Z" fill="#000000" data-astro-cid-husf5irm></path> </svg> <span class="hint" data-astro-cid-husf5irm>Add tags (Shift+T)</span> </button> </div> </div>  <!-- <an-item 
+          text= `Lorem ipsum dolor sit amet consectetur adipisicing elit.
+           Tenetur quia reprehenderit ullam dolorem et unde eius corporis 
+           obcaecati assumenda quas, sequi officia, alias veniam sit 
+           delectus sed pariatur eveniet tempore.`>
+        </an-item> --> <article id="todoContainer" data-astro-cid-j7pv25f6></article> <!-- <Items /> --> </div> <dialog id="addTagsDialog" class="open:flex flex-col justify-end w-[clamp(20rem,50vw,40rem)]" data-astro-cid-jybaatc3> <form method="dialog" id="addTagsForm" data-astro-cid-jybaatc3> <div class="box px-1" data-astro-cid-jybaatc3> <div id="modalPillContainer" data-astro-cid-jybaatc3> <div class="pill pillx" data-astro-cid-jybaatc3>Sample1</div> <div class="pill pillx" data-astro-cid-jybaatc3>Sample2</div> </div> <input autofocus type="text" name="" id="pillCreator" placeholder="Add your tags..." class="max-w-full w-full" data-astro-cid-jybaatc3> </div> <button type="submit" class="done my-2" data-astro-cid-jybaatc3>Add tags</button> </form> </dialog> <dialog id="newItemModal" class="open:flex flex-col justify-end place-content-center w-[44rem]"> <form method="dialog" id="newItemForm"> <div class="box w-full rounded-lg"> <input autofocus type="text" name="todo-item" id="todoItem" class="max-w-full w-full p-2 rounded-[inherit]"> </div> <button type="submit" class="done w-full my-2">Add item</button> </form> </dialog> <script type="module">
+  // import debounce from '/scripts/utils/debounce.js';
+  import { createElement } from "/scripts/utils/domutil.js";
+  import { saveList } from "/scripts/utils/storeutils.js";
+  import {
+    getFormattedDate,
+    getFormattedTime
+  } from "/scripts/utils/dateutils.js";
+  import { setActive } from "/scripts/utils/misc.js";
+  // const { setActive } = require("./utils/misc.js");
+
+  document
+    .getElementById("newItemForm")
+    .addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent the default form submission
+
+      // Get the value of the input field
+      const todoItem = document.getElementById("todoItem");
+      const todoItemValue = todoItem.value;
+
+      if (todoItemValue.trim() == "") {
+        return;
+      }
+
+      const dt = new Date();
+      const section = createElement("section", {
+        "data-datec": getFormattedDate(dt),
+        "data-timec": getFormattedTime(dt),
+        // "class": ["title-date", "active"]
+        class: ["title-date"]
+      });
+
+      section.innerHTML = /* html */ `
+        <div class="stack">
+            <div id="itemPillContainer" class="tags pill-container"></div>
+            <div class="content">
+                <input
+                    type="checkbox"
+                    name="mark-completed"
+                    id="completed-hint-tag"
+                    class="completed-toggle"
+                />
+                <select name="signifier" id="" class="signifier">
+                    <option value="todo">➔</option>
+                    <option value="log">≋</option>
+                    <option value="anything">🞲</option>
+                    <option value="quote">❝</option>
+                    <option value="diamond">❖</option>
+                    <option value="flag">⚐</option>
+                </select>
+                <p >
+                    <span class="text">${todoItemValue}</span>
+                    <span class="completed-tag pill unhidden">completed</span>
+                </p>
+            </div>
+        </div>
+    `;
+
+      setActive(section);
+      for (const child of document.querySelectorAll(
+        ".todoContainer > section"
+      )) {
+        let disorder = child.style.getPropertyValue("--displayOrder");
+        child.style.setProperty("--displayOrder", disorder * 1 + 1);
+      }
+      section.style.setProperty("--displayOrder", 1);
+      section.addEventListener("click", (e) => {
+        // const TodoBuckets = Array.from(document.getElementsByClassName('title-date'));
+        // TodoBuckets.forEach((bucket) => bucket.classList.remove("active"));
+        // e.currentTarget.classList.add("active");
+        setActive(e.currentTarget)
+      });
+      section.querySelector(".completed-toggle").addEventListener('change', (e) => {saveList()});
+      section.querySelector(".signifier").addEventListener('change', (e) => {saveList()});
+
+      // Create a new instance of the web component 'an-item'
+      // const newItem = document.createElement("an-item");
+      // newItem.setAttribute("text", todoItemValue);
+
+      // Append the new item to the todo list
+      console.log("Add value: ", todoItemValue);
+      // document.getElementById("todoContainer").prepend(section);
+
+      let container = document.querySelector(`article[data-datec="${getFormattedDate(dt)}"]`);
+      if (!container) {
+        container = createElement('article', {
+          "data-datec": getFormattedDate(dt),
+          class: ["todoContainer"]
+        });
+        document.getElementById("itemContainer").prepend(container);
+      } 
+      container.prepend(section);
+
+      saveList();
+      // Clear the input field after adding the item
+      // todoItem.value = "";
+    });
+</script> </div></body></html>
